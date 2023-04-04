@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Main {
     public static void main(String[] args) {
         double array[] = new double[15];
@@ -26,7 +28,38 @@ public class Main {
             previousValues = i;
         }
 
-        System.out.println(summ / countOfIntNum);
+        System.out.print("Среднее арифметическое: " + summ / countOfIntNum + "\n");
+        System.out.println();
+
+        //ДЗ на сообразительность
+        for (double sortedArray : sortArray(array)) {
+            System.out.println(sortedArray);
+        }
+    }
+
+    //ДЗ на сообразительность:
+    public static double[] sortArray(double[] arrayForSorted) {
+        boolean sorted = false;
+        double buffer;
+        while (!sorted) {
+            sorted = true;
+            int countOfIter = 1;
+            for (int i = 0; i < arrayForSorted.length - 1; i++) {
+                if (arrayForSorted[i] > arrayForSorted[i + 1]) {
+                    sorted = false;
+
+                    buffer = arrayForSorted[i];
+                    arrayForSorted[i] = arrayForSorted[i + 1];
+                    arrayForSorted[i + 1] = buffer;
+                }
+                for (double j : arrayForSorted)
+                    System.out.println(j);
+                System.out.println();
+                System.out.println("Итерация №: " + countOfIter);
+                countOfIter++;
+            }
+        }
+        return arrayForSorted;
     }
 
     // Метод для заполнения массива случайными числами
