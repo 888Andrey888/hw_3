@@ -1,6 +1,17 @@
 public class Main {
     public static void main(String[] args) {
         double array[] = new double[15];
+        array = addItemInArray(array.length, -10, 10);
+        for(double i: array){
+            System.out.println(i);
+        }
+
+        int previousValue = 0;
+        for(double i: array){
+            if(previousValue < 0){
+
+            }
+        }
     }
 
     // Метод для заполнения массива случайными числами
