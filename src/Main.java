@@ -4,12 +4,12 @@ public class Main {
     }
 
     // Метод для заполнения массива случайными числами
-    public static double[] addItemInArray(double array[]){
-
+    public static double[] addItemInArray(double array[]) {
+        return array;
     }
 
     // Метод генерирующий случайные дробные числа
-    public static double generateRandomItem(int min, int max){
-        
+    public static double generateRandomItem(int min, int max) {
+        return (Math.random() * (max - min) + min);
     }
 }
