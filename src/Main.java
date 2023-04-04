@@ -3,7 +3,7 @@ public class Main {
         double array[] = new double[15];
         //Написал метод заполнения массива случайными положительными и отрицательными числами было лень придумывать самому (программисты ленивые люди)
         array = addItemInArray(array.length, -10, 10);
-        for(double i: array){
+        for (double i : array) {
             System.out.println(i);
         }
 
@@ -13,11 +13,12 @@ public class Main {
         boolean startAddition = false;
         int countOfIntNum = 0;
         double summ = 0;
-        for(double i: array){
-            if(i > 0 && previousValues < 0)
-                startAddition = true;
+        for (double i : array) {
+            if (!startAddition)
+                if (i > 0 && previousValues < 0)
+                    startAddition = true;
 
-            if(startAddition && i > 0){
+            if (startAddition && i > 0) {
                 summ += i;
                 countOfIntNum++;
             }
@@ -31,7 +32,7 @@ public class Main {
     // Метод для заполнения массива случайными числами
     public static double[] addItemInArray(int arrayLength, int min, int max) {
         double arrayToReturn[] = new double[arrayLength];
-        for (int i = 0; i < arrayLength; i ++) {
+        for (int i = 0; i < arrayLength; i++) {
             //так же добавил метод генерации случайных дробных чисел в указанном диапазоне с расчетом что еще где пригодится(не повторяй сам себя)
             arrayToReturn[i] = generateRandomItem(min, max);
         }
