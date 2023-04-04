@@ -40,6 +40,7 @@ public class Main {
     }
 
     // Метод генерирующий случайные дробные числа
+    // В этот раз использовал класс Math для практики. За одно изучил данную тему
     public static double generateRandomItem(int min, int max) {
         return (Math.random() * (max - min) + min);
     }
