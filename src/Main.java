@@ -1,6 +1,10 @@
 import org.w3c.dom.ls.LSOutput;
 
+
+import java.util.Arrays;
+
 public class Main {
+
     public static void main(String[] args) {
         double array[] = new double[15];
         //Написал метод заполнения массива случайными положительными и отрицательными числами было лень придумывать самому (программисты ленивые люди)
@@ -32,18 +36,19 @@ public class Main {
         System.out.println();
 
         //ДЗ на сообразительность
-        for (double sortedArray : sortArray(array)) {
+        /*for (double sortedArray : sortArray(array)) {
             System.out.println(sortedArray);
-        }
+        }*/
+        System.out.println(Arrays.toString(sortArray(array)));
     }
 
     //ДЗ на сообразительность:
     public static double[] sortArray(double[] arrayForSorted) {
         boolean sorted = false;
         double buffer;
+        int countOfIter = 1;
         while (!sorted) {
             sorted = true;
-            int countOfIter = 1;
             for (int i = 0; i < arrayForSorted.length - 1; i++) {
                 if (arrayForSorted[i] > arrayForSorted[i + 1]) {
                     sorted = false;
@@ -52,10 +57,11 @@ public class Main {
                     arrayForSorted[i] = arrayForSorted[i + 1];
                     arrayForSorted[i + 1] = buffer;
                 }
-                for (double j : arrayForSorted)
-                    System.out.println(j);
-                System.out.println();
+                /*for (double j : arrayForSorted)
+                    System.out.println(j);*/
                 System.out.println("Итерация №: " + countOfIter);
+                System.out.println(Arrays.toString(arrayForSorted));
+                System.out.println();
                 countOfIter++;
             }
         }
@@ -75,6 +81,11 @@ public class Main {
     // Метод генерирующий случайные дробные числа
     // В этот раз использовал класс Math для практики. За одно изучил данную тему
     public static double generateRandomItem(int min, int max) {
-        return (Math.random() * (max - min) + min);
+//        return (Math.random() * (max - min) + min);
+
+        double random = (Math.random() * (max - min) + min);
+
+        double roundOff = Math.round(random * 1000.0) / 1000.0;
+        return roundOff;
     }
 }
