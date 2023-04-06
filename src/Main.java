@@ -36,9 +36,6 @@ public class Main {
         System.out.println();
 
         //ДЗ на сообразительность
-        /*for (double sortedArray : sortArray(array)) {
-            System.out.println(sortedArray);
-        }*/
         System.out.println(Arrays.toString(sortArray(array)));
     }
 
@@ -57,8 +54,7 @@ public class Main {
                     arrayForSorted[i] = arrayForSorted[i + 1];
                     arrayForSorted[i + 1] = buffer;
                 }
-                /*for (double j : arrayForSorted)
-                    System.out.println(j);*/
+
                 System.out.println("Итерация №: " + countOfIter);
                 System.out.println(Arrays.toString(arrayForSorted));
                 System.out.println();
@@ -81,10 +77,7 @@ public class Main {
     // Метод генерирующий случайные дробные числа
     // В этот раз использовал класс Math для практики. За одно изучил данную тему
     public static double generateRandomItem(int min, int max) {
-//        return (Math.random() * (max - min) + min);
-
         double random = (Math.random() * (max - min) + min);
-
         double roundOff = Math.round(random * 1000.0) / 1000.0;
         return roundOff;
     }
