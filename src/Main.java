@@ -36,11 +36,35 @@ public class Main {
         System.out.println();
 
         //ДЗ на сообразительность
-        System.out.println(Arrays.toString(sortArray(array)));
+        sortArrayBySelection(array);
     }
 
     //ДЗ на сообразительность:
-    public static double[] sortArray(double[] arrayForSorted) {
+    private static void sortArrayBySelection(double[] array) {
+        for (int i = 0; i < array.length; i++) {
+            //данные переменные я использую для замены
+            int pos = i;            //переменная для записи наименьшего индекса
+            double min = array[i];  //переменная для записи наименьшего значения
+
+            // выбор наименьшего значения
+            for (int j = i + 1; j < array.length; j++) {
+                if(array[j] < min){
+                    pos = j;
+                    min = array[j];
+                }
+            }
+
+            //замена значений
+            array[pos] = array[i];
+            array[i] = min;
+
+            //вывод на экран
+            System.out.println(Arrays.toString(array));
+        }
+    }
+
+    // Не стал удалять данный метод, он тоже результативный
+    public static double[] sortArrayByBubble(double[] arrayForSorted) {
         boolean sorted = false;
         double buffer;
         int countOfIter = 1;
